@@ -2,7 +2,7 @@
 
 ## Clone Project
 ``` 
-git clone ...
+git clone https://github.com/davg80/future_builder.git
 ``` 
 
 ## Veille Flutter : FUTURE BUILDER
