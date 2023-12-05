@@ -83,3 +83,10 @@ final baseUri = 'https://jsonplaceholder.typicode.com/users';
 ![](imagesReadme/loading.png)
 
 Ici, on a le déroulement normal d'attente du loader de l'application.
+
+- ## Mise en place de la connexion android dans le manifeste
+```Dart
+  <uses-permission android:name="android.permission.INTERNET" />
+```
+![](imagesReadme/Android.png)
+
