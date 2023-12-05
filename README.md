@@ -27,3 +27,59 @@ flutter pub add http
 flutter pub add provider
 flutter pub get
 ```
+
+## Travail sur FutureBuilder
+
+J'ai mis en place plusieurs scénarios possibles:
+
+
+- ## OK
+![](imagesReadme/OK.png)
+Ici, c'est le cas normal:
+- J'ai créé un provider pour diffuser des données dans le composant 
+- Mis en place de FutureBuilder avec ses concepts (future, builder, snapshot)
+- J'ai mis les conditions pour les différents comme sur la documentation:
+
+_**EN ATTENTE**_
+```DART
+  if (snapshot.connectionState == ConnectionState.waiting)
+```
+_**RESPONSE OK**_
+```DART
+ if (snapshot.connectionState == ConnectionState.done)
+```
+- On a une reponse avec une erreur
+```DART
+ if (snapshot.connectionState == ConnectionState.done)
+```  
+- Si on a de la data
+```DART
+ } else if (snapshot.hasData) {
+```
+- Si aucune des données sont disponibles
+```DART
+} else {
+    return const Text('Aucune donnée disponible.');
+}
+
+- On retourne le status de la connection du snapshot avec son exception
+```DART
+} else {
+    return Text('State: ${snapshot.connectionState}');
+}
+```
+- ## Error
+![](imagesReadme/Error2.png)
+Pour cette étape, j'ai mis une erreur dans l'adresse de récupération des données.En forçant sur le relancement de l'application, on obtient cette erreur.
+```DART
+final baseUri = 'https://jsonplaceholder.typicode.com/users';
+```
+à la place de users en laissant le :
+```DART
+ return users
+```
+
+- ## Waiting
+![](imagesReadme/loading.png)
+
+Ici, on a le déroulement normal d'attente du loader de l'application.
